@@ -1,7 +1,4 @@
 import cv2
-from crypt import methods
-from re import template
-from cv2 import TM_CCOEFF_NORMED
 
 
 orig = cv2.imread("Cheems.png")
@@ -12,7 +9,7 @@ image_gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 template_gray = cv2.cvtColor(template, cv2.COLOR_BGR2GRAY)
 
 methods = [cv2.TM_SQDIFF, cv2.TM_CCOEFF_NORMED, cv2.TM_CCORR,
-            cv2.TM_CCORR_NORMED, cv2.TM_CCOEFF, cv2,TM_CCOEFF_NORMED]
+            cv2.TM_CCORR_NORMED, cv2.TM_CCOEFF, cv2.TM_CCOEFF_NORMED]
 
 for method in methods:
     res = cv2.matchTemplate(image_gray, template_gray, method=method)
